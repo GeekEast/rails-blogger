@@ -3,13 +3,14 @@
 - uuid
 - soft delete
 
-### Gem
+## Gem
 - [paranoia](https://github.com/rubysherpas/paranoia): soft delete records
 
-### Concepts
+## Concepts
 - reflection: fields in database table automatically reflected in model's definition.
 
 
+## Bricks
 ### UUID
 - [Use UUID as primary key](https://blog.bigbinary.com/2016/04/04/rails-5-provides-application-config-to-use-uuid-as-primary-key)
 ```ruby
@@ -39,4 +40,27 @@ end
 ```ruby
 class ApplicationController < ActionController::API
 end
+```
+<!-- 51c1fc74-2d4c-4f81-8e04-d2782a3fbefa -->
+
+### Look up a Record in Rails
+- Basic
+```ruby
+User.create name: 'THE USER' # creates a user with id = 1
+User.find(1) # returns the user
+User.find_by(id: 1) # return the user
+User.find_by_id(1) # returns the user
+User.where(id: 1).first # returns the user
+```
+- Error Handling
+```ruby
+User.find(2) # raises an exception
+User.find_by(id:2) # nil
+User.find_by_id(2) # nil
+User.where(id: 2).first # nil
+```
+- Other
+```ruby
+User.where(id: 2) # return an array
+User.where(id: "not found") # return []
 ```
