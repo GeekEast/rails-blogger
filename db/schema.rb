@@ -24,5 +24,4 @@ ActiveRecord::Schema.define(version: 2020_11_18_080609) do
     t.text "body"
     t.index ["deleted_at"], name: "index_articles_on_deleted_at"
   end
-
 end
