@@ -10,9 +10,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-    # render json: { message: "removed" }, status: :ok
-    head :no_content
+    if @article.destroy
+      header :no_content
+    else
+      render
+    end
   end
 
   def create
@@ -24,6 +26,6 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find(params.require(:id))
+    @article = Article.find_by_id(params.require(:id))
   end
 end
