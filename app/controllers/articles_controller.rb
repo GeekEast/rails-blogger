@@ -6,11 +6,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    render json: @article
+    return @article ? (render json: @article) : render_resource_not_found
   end
 
   def destroy
-    @article ? @article.destroy : render_resource_not_found
+    return @article ? (@article.destroy) : render_resource_not_found
   end
 
   def create
