@@ -1,6 +1,10 @@
-### Gem
-- paranoia: soft delete records
+## Config
+- database
+- uuid
+- soft delete
 
+### Gem
+- [paranoia](https://github.com/rubysherpas/paranoia): soft delete records
 
 ### Concepts
 - reflection: fields in database table automatically reflected in model's definition.
@@ -21,5 +25,18 @@ class ChangeUserIdTypeToUuid < ActiveRecord::Migration[5.2]
     execute "ALTER TABLE users ADD PRIMARY KEY (id);"
   end
 end
+```
 
+### [InvalidAuthenticityToken](https://stackoverflow.com/questions/58577488/invalidauthenticitytoken-for-rails-api-only-application-for-post-request)
+- happens becauase of the `CSRF` protection in Rails Base Application
+- if you are developing a rails `api`, you can do this
+- change
+```ruby
+class ApplicationController < ActionController::Base
+end
+```
+- to
+```ruby
+class ApplicationController < ActionController::API
+end
 ```
