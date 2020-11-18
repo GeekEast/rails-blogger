@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :destroy]
-  rescue_from NoMethodError, with: :article_not_found_error
 
   def index
     render json: Article.all
@@ -11,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
+    @article ? @article.destroy : render_resource_not_found
   end
 
   def create
@@ -24,9 +23,5 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find_by_id(params.require(:id))
-  end
-
-  def article_not_found_error
-    head :not_found
   end
 end
