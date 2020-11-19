@@ -98,3 +98,4 @@ false.blank? # true
 "".blank? # true
 0.blank? # false
 ```
+- **presence**: negation of `blank`

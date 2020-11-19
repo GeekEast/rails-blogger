@@ -18,11 +18,12 @@ class ArticlesController < ApplicationController
     # create will trigger model validation
     @article = Article.create(article_params)
     render json: @article.errors
-    # if @article.errors
-    #   render json: @article, status: :created
-    # else
-    #   render json: @article.errors, status: :unprocessable_entity
-    # end
+
+    if @article.errors.empty?
+      render json: @article, status: :created
+    else
+      render json: @article.errors, status: : unprocessable_entity
+    end 
   end
 
   def update
