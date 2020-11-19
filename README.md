@@ -64,3 +64,37 @@ User.where(id: 2).first # nil
 User.where(id: 2) # return an array
 User.where(id: "not found") # return []
 ```
+
+### Create Record in ActiveRecord
+```ruby
+# method 1
+User.new
+User.name = "james"
+
+# method 2
+User.create(:params)
+```
+
+### nil, blank, empty in rails
+- **empty**: check no elements in a collection
+```ruby
+[].empty? # true
+{}.empty? # true
+Set.new.empty? # true
+```
+- **nil**: not initialized
+```ruby
+nil.nil? # true
+false.nil? # false
+0.nil? # false
+"".nil? # false
+```
+- **blank**: nil, false, empty and "", 0 is not blank
+```ruby
+nil.blank? # true
+false.blank? # true
+[].blank? # true
+{}.blank? # true
+"".blank? # true
+0.blank? # false
+```
