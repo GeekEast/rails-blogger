@@ -109,3 +109,32 @@ def index
   article = Article.new # local variable: available only in index method
 end
 ```
+
+### class << self
+- [Rails class << self](https://stackoverflow.com/questions/2567956/rails-class-self)
+```ruby
+module Utility
+  class Options #:nodoc:
+    class << self
+      # we are inside Options's singleton class
+      def parse(args)
+
+      end
+    end
+  end
+end
+
+
+#  is same to 
+module Utility
+  class Options #:nodoc:
+    def Options.parse(args)
+
+    end
+  end
+end
+```
+
+
+### References
+- [Rails API User Authentication](https://app.pluralsight.com/guides/token-based-authentication-with-ruby-on-rails-5-api)
