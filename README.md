@@ -99,3 +99,13 @@ false.blank? # true
 0.blank? # false
 ```
 - **presence**: negation of `blank`
+
+
+### Instance Variable in Controller
+```ruby
+# ArticlesController.rb
+def index
+  @article = Article.new # instance variable: available in view and controller
+  article = Article.new # local variable: available only in index method
+end
+```

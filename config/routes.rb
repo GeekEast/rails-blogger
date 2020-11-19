@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   delete "/articles/:id", to: "articles#destroy"
   put "/articles/:id", to: "articles#update"
   patch "/articles/:id", to: "articles#update"
+
+  root to: "articles#index"
 end
