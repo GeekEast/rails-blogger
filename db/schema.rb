@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_102752) do
+ActiveRecord::Schema.define(version: 2020_11_20_105558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 2020_11_20_102752) do
     t.datetime "deleted_at"
     t.string "title"
     t.text "body"
+    t.uuid "user_id"
     t.index ["deleted_at"], name: "index_articles_on_deleted_at"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 2020_11_20_102752) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "users"
 end
