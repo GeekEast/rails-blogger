@@ -41,7 +41,13 @@ end
 class ApplicationController < ActionController::API
 end
 ```
-<!-- 51c1fc74-2d4c-4f81-8e04-d2782a3fbefa -->
+- [or](https://dev.to/risafj/guide-to-devisetokenauth-simple-authentication-in-rails-api-pfj)
+```ruby
+# app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery unless: -> { request.format.json? }
+end
+```
 
 ### Look up a Record in Rails
 - Basic
@@ -138,3 +144,5 @@ end
 
 ### References
 - [Rails API User Authentication](https://app.pluralsight.com/guides/token-based-authentication-with-ruby-on-rails-5-api)
+- [AppSignal](https://blog.appsignal.com/)
+- [Concerns in Rails](https://blog.appsignal.com/2020/09/16/rails-concers-to-concern-or-not-to-concern.html)

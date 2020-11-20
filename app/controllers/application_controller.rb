@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include DeviseTokenAuth::Concerns::SetUserByToken
+
   protected
 
   def render_resource_not_found
