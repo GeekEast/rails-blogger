@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   before_save -> { skip_confirmation! }
   acts_as_paranoid
+
+  has_many :articles
 end

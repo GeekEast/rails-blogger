@@ -16,5 +16,5 @@ config.action_mailer.default_url_options = { :host => 'localhost' }
 
 
 ## References
-- [devise_token_auth docs](https://www.rubydoc.info/gems/devise_token_auth/0.1.31#usage)
+- [devise_token_auth docs](https://devise-token-auth.gitbook.io/devise-token-auth/)
 - [Guide to devise_token_auth: Simple Authentication in Rails API ](https://dev.to/risafj/guide-to-devisetokenauth-simple-authentication-in-rails-api-pfj)
